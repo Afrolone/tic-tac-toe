@@ -52,11 +52,15 @@ function handleClick(e) {
 }
 
 function checkGame() {
+    //console.log("Winner: " + WINNER)
     if (checkIfFull()) {
+        console.log("Circleturn: " + circleTurn)
         startGame()
     } else {
         if (checkWin()) {
+            console.log("Circleturn: " + circleTurn)
             startGame()
+            
         }
     }
 }
@@ -94,3 +98,5 @@ function resetElements() {
     })
     console.log(MATRIX)
 }
+
+

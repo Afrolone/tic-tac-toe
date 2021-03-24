@@ -7,9 +7,50 @@
     --mark-size: calc(var(--cell-size)* .9);
 }
 
+
 body {
     margin: 0;
-    overflow: hidden; /* Hide scrollbars */
+    overflow: hidden;
+    /* Hide scrollbars */
+} 
+
+
+/* Add a black background color to the top navigation */
+
+.topnav {
+    background-color: rgb(242, 247, 253);
+    overflow: hidden;
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+/* Style the links inside the navigation bar */
+
+.winnerMessage {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.resetDiv {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+
+.topnav div:hover {
+    background-color: white;
+    color: black;
 }
 
 .oContainer {
@@ -36,19 +77,17 @@ body {
 }
 
 .cell {
-   width: var(--cell-size);
-   height: var(--cell-size);
-   border: 1px solid black;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   position: relative;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
 }
 
-.cell:first-child,
-.cell:nth-child(2),
-.cell:nth-child(3) {
+.cell:first-child, .cell:nth-child(2), .cell:nth-child(3) {
     border-top: none;
 }
 
@@ -60,8 +99,6 @@ body {
     border-right: none;
 }
 
-.cell:last-child,
-.cell:nth-child(8),
-.cell:nth-child(7) {
+.cell:last-child, .cell:nth-child(8), .cell:nth-child(7) {
     border-bottom: none;
 }
