@@ -27,16 +27,6 @@ body {
     border-left: none;
 }
 
-.bottomnav {
-    background-color: rgb(242, 247, 253);
-    overflow: hidden;
-    border: 2px solid black;
-    border-bottom: none;
-    border-right: none;
-    border-left: none;
-}
-
-
 /* Style the links inside the navigation bar */
 
 .winnerMessage {
@@ -73,8 +63,35 @@ body {
     /* Standard */
 }
 
-.winnerMessage {
-    float: left;
+/* Change the color of links on hover */
+
+.topnav div:hover {
+    background-color: white;
+    color: black;
+}
+
+.topnav .resetDiv:hover {
+    background-color: #ff8e8e;
+    color: black;
+    cursor: pointer;
+}
+
+/* Place the navbar at the bottom of the page, and make it stick */
+
+.bottomNavbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(242, 247, 253);
+    overflow: hidden;
+    border: 2px solid black;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+}
+
+.xScoreDiv,
+.oScoreDiv {
     color: black;
     text-align: center;
     padding: 14px 16px;
@@ -90,22 +107,14 @@ body {
     /* Standard */
 }
 
-.bottomnav div:hover {
-    background-color: white;
-    color: black;
-}
-/* Change the color of links on hover */
-
-.topnav div:hover {
-    background-color: white;
-    color: black;
+.xScoreDiv {
+    float: left;
 }
 
-.topnav .resetDiv:hover {
-    background-color: #ff8e8e;
-    color: black;
-    cursor: pointer;
+.oScoreDiv {
+    float: right;
 }
+
 
 .oContainer {
     width: calc(var(--cell-size) * .77);
@@ -137,9 +146,12 @@ body {
     pointer-events: none;
 }
 
+.boardContainer {
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
 .board {
-    width: 100vw;
-    height: 100vh;
     display: grid;
     justify-content: center;
     align-content: center;
