@@ -13,14 +13,17 @@ MATRIX = [-1, -1, -1,-1, -1, -1,-1, -1, -1]
 
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
-//const winningMessageElement = document.getElementById('winningMessage')
-//const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
-//const restartButton = document.getElementById('restartButton')
+const resetButton = document.getElementById('resetDiv')
+const winningMessageElement = document.getElementById('winnerMessage')
 let circleTurn
 
 startGame()
 
 function startGame() {
+    winningMessageElement.innerText = "Tic-Tac"
+    resetButton.addEventListener('click', function() {
+        startGame()
+    })
     resetElements()
     circleTurn = false
     var i = 0
@@ -36,7 +39,6 @@ function handleClick(e) {
     circleTurn = !circleTurn
     cell = e.target
     index = cell.param
-    console.log(index)
     currentInheritValue = circleTurn ? cell.children[0] : cell.children[1]
 
     if (circleTurn) {
@@ -47,20 +49,14 @@ function handleClick(e) {
         MATRIX[index] = 1
     }
     checkGame()
-    console.log("WIN: " + checkWin())
-    console.log("FULL: " + checkIfFull())
 }
 
 function checkGame() {
-    //console.log("Winner: " + WINNER)
-    if (checkIfFull()) {
-        console.log("Circleturn: " + circleTurn)
-        startGame()
+    if(checkWin()){
+        endGame()
     } else {
-        if (checkWin()) {
-            console.log("Circleturn: " + circleTurn)
-            startGame()
-            
+        if(checkIfFull()){
+            endGame(true)
         }
     }
 }
@@ -96,7 +92,20 @@ function resetElements() {
         cell.children[0].style.display = 'none'
         cell.children[1].style.display = 'none'
     })
-    console.log(MATRIX)
 }
 
-
+function endGame(isdraw) {
+    if(isdraw) {
+        winningMessageElement.innerText = "DRAAAW!!!"
+    } else {
+        if(circleTurn){
+            winningMessageElement.innerText = "THE WINNER IS O !!!!!"
+        } else {
+            winningMessageElement.innerText = "THE WINNER IS X !!!!!"
+        }
+    }
+    
+    cellElements.forEach(cell => {
+        cell.removeEventListener('click', handleClick);
+    })
+}

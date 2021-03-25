@@ -7,13 +7,14 @@
     --mark-size: calc(var(--cell-size)* .9);
 }
 
-
 body {
     margin: 0;
     overflow: hidden;
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
     /* Hide scrollbars */
-} 
-
+}
 
 /* Add a black background color to the top navigation */
 
@@ -26,6 +27,16 @@ body {
     border-left: none;
 }
 
+.bottomnav {
+    background-color: rgb(242, 247, 253);
+    overflow: hidden;
+    border: 2px solid black;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+}
+
+
 /* Style the links inside the navigation bar */
 
 .winnerMessage {
@@ -35,6 +46,14 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 }
 
 .resetDiv {
@@ -44,8 +63,37 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 }
 
+.winnerMessage {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+.bottomnav div:hover {
+    background-color: white;
+    color: black;
+}
 /* Change the color of links on hover */
 
 .topnav div:hover {
@@ -53,16 +101,40 @@ body {
     color: black;
 }
 
+.topnav .resetDiv:hover {
+    background-color: #ff8e8e;
+    color: black;
+    cursor: pointer;
+}
+
 .oContainer {
     width: calc(var(--cell-size) * .77);
     height: calc(var(--cell-size) * .77);
     display: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    pointer-events: none;
 }
 
 .xContainer {
     width: calc(var(--cell-size) * .97);
     height: calc(var(--cell-size) * .97);
     display: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    pointer-events: none;
 }
 
 .board {
