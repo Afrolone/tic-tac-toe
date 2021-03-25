@@ -10,11 +10,15 @@ const WINNING_COMBINATIONS = [
 ]
 
 MATRIX = [-1, -1, -1,-1, -1, -1,-1, -1, -1]
+OWINS = 0
+XWINS = 0
 
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const resetButton = document.getElementById('resetDiv')
 const winningMessageElement = document.getElementById('winnerMessage')
+const xScore = document.getElementById('xScoreDiv')
+const oScore = document.getElementById('oScoreDiv')
 let circleTurn
 
 startGame()
@@ -100,12 +104,21 @@ function endGame(isdraw) {
     } else {
         if(circleTurn){
             winningMessageElement.innerText = "THE WINNER IS O !!!!!"
+            OWINS = OWINS + 1
+            updateScore()
         } else {
             winningMessageElement.innerText = "THE WINNER IS X !!!!!"
+            XWINS = XWINS + 1
+            updateScore()
         }
     }
     
     cellElements.forEach(cell => {
         cell.removeEventListener('click', handleClick);
     })
+}
+
+function updateScore() {
+    oScore.innerText = "O: " + OWINS //X: 0
+    xScore.innerText = "X: " + XWINS
 }
